@@ -1,6 +1,4 @@
-window.addEventListener("load", () => {
-  document.getElementById("preloader").style.display = "none";
-});
+
 
 const baskonItems = [
   {
@@ -120,8 +118,7 @@ const baskonItems = [
 const baskonList = document.getElementById("baskon-list");
 
 function loadBaskons() {
-  const stored = JSON.parse(localStorage.getItem("baskonItems")) || [];
-  [...baskonItems, ...stored].forEach((item) => {
+    baskonItems.forEach((item) => {
     const card = document.createElement("div");
     card.className = "baskon-card";
     card.innerHTML = `
