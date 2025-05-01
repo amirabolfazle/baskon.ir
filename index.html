@@ -1,59 +1,83 @@
 <!DOCTYPE html>
-<html lang="fa">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>بس کن ایرانی!</title>
-    <meta
-      name="description"
-      content="یک پروژه‌ی آگاهی اجتماعی برای نقد رفتارهای غلط رایج در جامعه‌ی ایران"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script
-      defer
-      src="https://platform.analytick.ir/script.js"
-      data-website-id="6123593d-81b1-4101-8c04-d05145716cae"
-    ></script>
-  </head>
-  <body>
-    <header class="header">
-      <h1>بس کن ایرانی!</h1>
-      حداقل یک بار در روز به خودت بگو: بس کن ایرانی!<br />
-      <p class="description">
-        یک پروژه‌ی آگاهی اجتماعی برای نقد رفتارهای غلط رایج در جامعه‌ی ایران
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>بس کن ایرانی! - پروژه‌ی آگاهی اجتماعی</title>
+  <meta name="description" content="بس کن ایرانی! یک پروژه‌ی آگاهی اجتماعی است برای نقد رفتارهای غلط رایج در جامعه‌ی ایران و ترویج فرهنگ مثبت." />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="بس کن ایرانی, فرهنگ سازی, رفتار اشتباه, پروژه اجتماعی, تغییر اجتماعی, نقد اجتماعی" />
+  <meta name="author" content="بس کن ایرانی" />
+  <meta property="og:title" content="بس کن ایرانی!" />
+  <meta property="og:description" content="پروژه‌ای برای نقد و اصلاح رفتارهای اشتباه در جامعه ایرانی." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://baskon.ir/" />
+  <meta property="og:image" content="https://baskon.ir/og-cover.jpg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Analytics -->
+  <script defer src="https://platform.analytick.ir/script.js" data-website-id="6123593d-81b1-4101-8c04-d05145716cae"></script>
+</head>
+
+<body>
+  <header>
+    <h1>بس کن ایرانی!</h1>
+    <p class="tagline">حداقل یک بار در روز به خودت بگو: بس کن ایرانی!</p>
+    <p class="description">یک پروژه‌ی آگاهی اجتماعی برای نقد رفتارهای غلط رایج در جامعه‌ی ایران</p>
+  </header>
+
+  <main>
+    <!-- لیست کارت‌ها -->
+    <section id="baskon-list" class="baskon-list" aria-label="فهرست رفتارها">
+      <!-- کارت‌ها در JS تولید می‌شن -->
+    </section>
+
+    <!-- صفحه جزئیات کارت -->
+    <section id="baskon-detail" class="baskon-detail" style="display: none;">
+      <div id="baskon-content"></div>
+      <div id="giscus-container" aria-label="بخش نظرات">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="Mahdi-Hazrati/baskon.ir"
+          data-repo-id="R_kgDOOhNjpw"
+          data-category="General"
+          data-category-id="DIC_kwDOOhNjp84Cpjyv"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="noborder_light"
+          data-lang="fa"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </div>
+    </section>
+
+    <!-- درباره پروژه -->
+    <section id="about" class="about" style="max-width: 800px; margin: 3rem auto; padding: 1rem;">
+      <h2>درباره پروژه</h2>
+      <p>
+        بس کن ایرانی یک پروژه‌ی متن‌باز و مردمی است که با هدف افزایش آگاهی اجتماعی و
+        نقد رفتارهای اشتباه در جامعه طراحی شده. هدف ما ایجاد فضایی برای گفتگو،
+        آموزش و تحول فرهنگی‌ست.
       </p>
-    </header>
+    </section>
+  </main>
 
-    <main id="baskon-view">
-      <section id="baskon-list" class="baskon-list"></section>
-      <section id="baskon-detail" class="baskon-detail" style="display:none;">
-        <div id="baskon-content"></div>
-        <div id="giscus-container">
-          <script
-            src="https://giscus.app/client.js"
-            data-repo="Mahdi-Hazrati/baskon.ir"
-            data-repo-id="R_kgDOOhNjpw"
-            data-category="General"
-            data-category-id="DIC_kwDOOhNjp84Cpjyv"
-            data-mapping="pathname"
-            data-strict="1"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="noborder_light"
-            data-lang="fa"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async
-          ></script>
-        </div>
-      </section>
-    </main>
+  <footer class="footer" style="text-align: center; padding: 2rem 1rem; background: #f1f1f1;">
+    <p>
+      این پروژه <strong>اپن‌سورس</strong> است و می‌توانید در توسعه‌ی آن مشارکت کنید:
+      <a href="https://github.com/Mahdi-Hazrati/baskon.ir" target="_blank" rel="noopener">GitHub</a>
+    </p>
+    <p>© 1405 بس کن ایرانی - تمامی حقوق محفوظ است.</p>
+  </footer>
 
-    <!-- Load data first so `db` is defined globally -->
-    <script src="db.js"></script>
-
-    <!-- Load main script after data -->
-    <script src="script.js"></script>
-  </body>
+  <!-- Scripts -->
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>

@@ -9,48 +9,51 @@ body {
   margin: 0;
   font-family: "Vazirmatn", sans-serif;
   direction: rtl;
-  background-color: #f7f7f7;
+  background: linear-gradient(to bottom, #fafafa, #f0f0f0);
   color: #333;
   line-height: 1.8;
-  padding: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
+/* هیرو سکشن */
 header {
-  background: linear-gradient(135deg, #ff4081, #ff80ab);
+  background: radial-gradient(circle at top right, #ff4081, #ff80ab);
   color: white;
   text-align: center;
-  padding: 4rem 1rem;
-  border-bottom: 1px solid #eee;
+  padding: 5rem 1rem 6rem;
   position: relative;
   overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+  border-bottom-left-radius: 100px 60px;
 }
 
-header::before {
+header::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: -20px;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: -1;
+  height: 60px;
+  background: #f7f7f7;
+  border-top-left-radius: 60px;
+  z-index: 1;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  animation: slideInDown 0.8s ease;
 }
 
 header p {
-  margin-top: 0.5rem;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #f1f1f1;
-  line-height: 1.6;
+  color: #fff;
+  margin-top: 1rem;
+  animation: slideInUp 0.8s ease;
 }
 
 /* گرید کارت‌ها */
@@ -58,59 +61,60 @@ header p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
-  padding: 0 1rem;
+  margin-top: -3rem;
+  padding: 0 1.5rem 4rem;
+  position: relative;
+  z-index: 2;
 }
 
-/* استایل کارت‌ها */
+/* کارت‌ها */
 .baskon-card {
   background: white;
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .baskon-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .baskon-card .emoji {
   font-size: 3rem;
   margin-bottom: 1rem;
-  transition: transform 0.2s ease;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .baskon-card:hover .emoji {
-  transform: scale(1.2);
+  transform: rotate(10deg) scale(1.2);
 }
 
 .baskon-card .title {
   font-weight: bold;
-  font-size: 1.2rem;
-  color: #c62828;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #e53935;
+  margin-bottom: 0.8rem;
 }
 
 .baskon-card .description {
   font-size: 1rem;
-  color: #666;
-  line-height: 1.5;
+  color: #555;
+  line-height: 1.6;
 }
 
 /* صفحه‌ی داخلی */
 .baskon-detail {
-  max-width: 800px;
+  max-width: 850px;
   margin: 4rem auto;
   background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 #baskon-content {
@@ -121,10 +125,28 @@ header p {
   margin-top: 3rem;
 }
 
-/* استایل واکنش‌گرا */
+/* لینک گیت‌هاب */
+.footer-link {
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1rem;
+}
+
+.footer-link a {
+  color: #c2185b;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link a:hover {
+  color: #ad1457;
+}
+
+/* ریسپانسیو */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
   header p {
@@ -132,7 +154,7 @@ header p {
   }
 
   .baskon-card {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .baskon-card .emoji {
@@ -140,7 +162,7 @@ header p {
   }
 
   .baskon-card .title {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -155,13 +177,53 @@ header p {
 
   .baskon-list {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .baskon-card {
+    padding: 1.2rem;
   }
 
   .baskon-card .emoji {
     font-size: 2rem;
   }
+}
 
-  .baskon-card .title {
-    font-size: 1rem;
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
