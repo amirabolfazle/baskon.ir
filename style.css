@@ -16,12 +16,12 @@ body {
   overflow-x: hidden;
 }
 
-/* هیرو سکشن */
+/* هیرو سکشن - Green and Blue theme */
 header {
-  background: radial-gradient(circle at top right, #ff4081, #ff80ab);
+  background: linear-gradient(to right, #34b8a0, #0066cc); /* Green to Blue gradient */
   color: white;
   text-align: center;
-  padding: 5rem 1rem 6rem;
+  padding: 6rem 1rem;
   position: relative;
   overflow: hidden;
   animation: fadeIn 1s ease-in-out;
@@ -42,18 +42,21 @@ header::after {
 
 header h1 {
   margin: 0;
-  font-size: 3rem;
+  font-size: 3.6rem; /* Larger title */
   font-weight: 700;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   animation: slideInDown 0.8s ease;
+  letter-spacing: 2px; /* Slightly increased spacing for emphasis */
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #fff;
   margin-top: 1rem;
   animation: slideInUp 0.8s ease;
+  font-style: italic; /* Adding style for uniqueness */
+  letter-spacing: 1px;
 }
 
 /* گرید کارت‌ها */
@@ -76,6 +79,7 @@ header p {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 0.6s ease forwards;
+  cursor: pointer;
 }
 
 .baskon-card:hover {
@@ -97,7 +101,7 @@ header p {
 .baskon-card .title {
   font-weight: bold;
   font-size: 1.3rem;
-  color: #e53935;
+  color: #0066cc; /* Blue color for titles */
   margin-bottom: 0.8rem;
 }
 
@@ -133,14 +137,14 @@ header p {
 }
 
 .footer-link a {
-  color: #c2185b;
+  color: #0066cc;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footer-link a:hover {
-  color: #ad1457;
+  color: #34b8a0; /* Green hover effect */
 }
 
 /* ریسپانسیو */
