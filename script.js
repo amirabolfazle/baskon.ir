@@ -1,133 +1,72 @@
-
-
-const baskonItems = [
-  {
-    emoji: "🚗",
-    title: "چه شمالی با این ترافیک؟",
-    description:
-      "عه چند روزه تعطیله بریم شمال اکبر جوجه بزنیم بعد این میاد بس کن ایرانی چه شمالی با این ترافیک؟",
-  },
-  {
-    emoji: "🏀",
-    title: "بس کن با این قهرمانی تو بسکتبال!",
-    description: "من دیگه نمیخوام بشنوم که کی قهرمانه... بس کن! بس کن ایرانی!",
-  },
-  {
-    emoji: "💻",
-    title: "بس کن ایرانی با این کندی اینترنت!",
-    description: "چرا اینترنت همه جا اینقدر کند شده؟ بس کن ایرانی دیگه!",
-  },
-  {
-    emoji: "🎉",
-    title: "بس کن با این جشن‌های تکراری!",
-    description:
-      "هر عیدی میشه، میگن بیا جشن بگیریم. بس کن ایرانی، دیگه خسته شدم!",
-  },
-  {
-    emoji: "🍽️",
-    title: "بس کن با این غذاهای تکراری!",
-    description: "هر روز همون غذاها رو میپزیم. بس کن ایرانی، تنوع بده!",
-  },
-  {
-    emoji: "📱",
-    title: "بس کن با این پیام‌های بی‌پایان!",
-    description: "هر لحظه یه پیام جدید میاد. بس کن ایرانی، دیگه حوصله ندارم!",
-  },
-  {
-    emoji: "🎁",
-    title: "بس کن با این هدیه‌های تکراری!",
-    description: "هر سال همون هدیه‌ها رو میدی. بس کن ایرانی، خلاق باش!",
-  },
-  {
-    emoji: "🛍️",
-    title: "بس کن با این خریدهای بی‌پایان!",
-    description:
-      "هر روز یه چیزی میخری. بس کن ایرانی، دیگه جایی برای خرید نیست!",
-  },
-  {
-    emoji: "🕒",
-    title: "بس کن با این دیر اومدن‌ها!",
-    description: "هر بار میگی دیر میام. بس کن ایرانی، وقت‌شناس باش!",
-  },
-  {
-    emoji: "🌧️",
-    title: "بس کن با این هوای بارونی!",
-    description:
-      "هر وقت میخوای بیرون بری، بارون میاد. بس کن ایرانی، هوا رو درست کن!",
-  },
-  {
-    emoji: "🎬",
-    title: "بس کن با این فیلم‌های تکراری!",
-    description:
-      "هر هفته همون فیلم‌ها رو میبینی. بس کن ایرانی، فیلم جدید پیدا کن!",
-  },
-  {
-    emoji: "🎤",
-    title: "بس کن با این آوازهای تکراری!",
-    description:
-      "هر مهمونی همون آوازها رو میخونی. بس کن ایرانی، آهنگ جدید بخون!",
-  },
-  {
-    emoji: "🎨",
-    title: "بس کن با این نقاشی‌های ساده!",
-    description: "هر بار همون نقاشی‌ها رو میکشی. بس کن ایرانی، خلاق باش!",
-  },
-  {
-    emoji: "🎁",
-    title: "بس کن با این بسته‌بندی‌های ساده!",
-    description:
-      "هر هدیه‌ای رو همونطور می‌پیچی. بس کن ایرانی، بسته‌بندی خلاقانه داشته باش!",
-  },
-  {
-    emoji: "🎉",
-    title: "بس کن با این جشن‌های ساده!",
-    description:
-      "هر جشن رو همونطور برگزار می‌کنی. بس کن ایرانی، جشن‌های متفاوت داشته باش!",
-  },
-  {
-    emoji: "🎁",
-    title: "بس کن با این کارت‌های تبریک ساده!",
-    description:
-      "هر بار همون کارت‌ها رو می‌فرستی. بس کن ایرانی، کارت‌های تبریک خلاقانه داشته باش!",
-  },
-  {
-    emoji: "🎉",
-    title: "بس کن با این مهمانی‌های تکراری!",
-    description:
-      "هر مهمونی همونطور برگزار می‌کنی. بس کن ایرانی، مهمانی‌های متفاوت داشته باش!",
-  },
-  {
-    emoji: "🎁",
-    title: "بس کن با این هدیه‌های تکراری!",
-    description:
-      "هر بار همون هدیه‌ها رو می‌دی. بس کن ایرانی، هدیه‌های متفاوت بده!",
-  },
-  {
-    emoji: "🛍️",
-    title: "بس کن با این خریدهای بی‌پایان!",
-    description:
-      "هر روز یه چیزی می‌خری. بس کن ایرانی، دیگه جایی برای خرید نیست!",
-  },
-  {
-    emoji: "🕒",
-    title: "بس کن با این دیر اومدن‌ها!",
-    description: "هر بار می‌گی دیر میام. بس کن ایرانی، وقت‌شناس باش!",
-  },
-];
-
 const baskonList = document.getElementById("baskon-list");
+const baskonView = document.getElementById("baskon-view");
+const baskonDetail = document.getElementById("baskon-detail");
+const baskonContent = document.getElementById("baskon-content");
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[\s]+/g, "-").replace(/[^\w-]/g, "");
+}
 
 function loadBaskons() {
-    baskonItems.forEach((item) => {
+  db.forEach((item) => {
+    const slug = slugify(item.title);
     const card = document.createElement("div");
     card.className = "baskon-card";
     card.innerHTML = `
-        <div class="emoji">${item.emoji}</div>
-        <div class="text">${item.title}</div>
-        <div class="text">${item.description}</div>
-      `;
+      <div class="emoji">${item.emoji}</div>
+      <div class="title">${item.title}</div>
+    `;
+    card.addEventListener("click", () => {
+      history.pushState({}, "", `/baskon/${slug}`);
+      showBaskonDetail(item);
+    });
     baskonList.appendChild(card);
   });
+
+  // اگر مسیر به‌صورت مستقیم به یک مورد اشاره داره
+  const path = window.location.pathname;
+  const match = path.match(/\/baskon\/(.+)/);
+  if (match) {
+    const slug = match[1];
+    const baskon = db.find((item) => slugify(item.title) === slug);
+    if (baskon) showBaskonDetail(baskon);
+  }
 }
+
+function showBaskonDetail(item) {
+  baskonList.style.display = "none";
+  baskonDetail.style.display = "block";
+  baskonContent.innerHTML = `
+    <h2>${item.emoji} ${item.title}</h2>
+    <p>${item.description}</p>
+  `;
+
+  // ری‌لود گیسکاس برای مسیر جدید
+  const giscus = document.querySelector("script[src*='giscus.app']");
+  if (giscus) giscus.remove();
+  const giscusContainer = document.getElementById("giscus-container");
+  const newScript = document.createElement("script");
+  newScript.src = "https://giscus.app/client.js";
+  newScript.setAttribute("data-repo", "Mahdi-Hazrati/baskon.ir");
+  newScript.setAttribute("data-repo-id", "R_kgDOOhNjpw");
+  newScript.setAttribute("data-category", "General");
+  newScript.setAttribute("data-category-id", "DIC_kwDOOhNjp84Cpjyv");
+  newScript.setAttribute("data-mapping", "pathname");
+  newScript.setAttribute("data-strict", "1");
+  newScript.setAttribute("data-reactions-enabled", "1");
+  newScript.setAttribute("data-emit-metadata", "0");
+  newScript.setAttribute("data-input-position", "top");
+  newScript.setAttribute("data-theme", "noborder_light");
+  newScript.setAttribute("data-lang", "fa");
+  newScript.setAttribute("data-loading", "lazy");
+  newScript.async = true;
+  newScript.crossOrigin = "anonymous";
+  giscusContainer.innerHTML = "";
+  giscusContainer.appendChild(newScript);
+}
+
+window.addEventListener("popstate", () => {
+  location.reload(); // بازگشت به لیست یا آیتم قبلی
+});
 
 loadBaskons();

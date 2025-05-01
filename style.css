@@ -1,155 +1,167 @@
-/* Base Styles */
+/* فونت فارسی دلخواه */
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Vazirmatn', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #d3f9f3, #ffffff); /* سبز پاستلی به سفید */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-    direction: rtl;
+  margin: 0;
+  font-family: "Vazirmatn", sans-serif;
+  direction: rtl;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.8;
+  padding: 0;
+  min-height: 100vh;
 }
 
-/* Header */
 header {
-    background-color: #58a6b7; /* آبی پاستلی */
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    animation: fadeInDown 1s ease;
+  background: linear-gradient(135deg, #ff4081, #ff80ab);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: -1;
 }
 
 header h1 {
-    font-size: 2.8rem;
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 header p {
-    font-size: 1.3rem;
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f1f1f1;
+  line-height: 1.6;
 }
 
-/* Main Content Section */
-main {
-    padding: 2rem 1rem;
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+/* گرید کارت‌ها */
+.baskon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 1rem;
 }
 
-/* Baskon Cards */
+/* استایل کارت‌ها */
 .baskon-card {
-    background: white;
-    border: 3px dashed #58a6b7; /* آبی پاستلی */
-    border-radius: 1.5rem;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: scale(1);
-    transition: transform 0.3s ease, box-shadow 0.3s;
-    animation: popIn 0.5s ease;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .baskon-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes popIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .baskon-card .emoji {
-    font-size: 3rem;
-    margin-bottom: 0.8rem;
-    animation: wiggle 1.5s infinite;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
 }
 
-@keyframes wiggle {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(10deg); }
+.baskon-card:hover .emoji {
+  transform: scale(1.2);
 }
 
-/* Floating Add Button */
-#add-baskon-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: #9be3d4; /* سبز پاستلی */
-    color: white;
-    border: none;
-    padding: 1rem 1.5rem;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: background 0.3s;
-    z-index: 10;
+.baskon-card .title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #c62828;
+  margin-bottom: 1rem;
 }
 
-#add-baskon-btn:hover {
-    background-color: #7fcca8; /* سبز پاستلی تیره‌تر */
+.baskon-card .description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
 }
 
-/* Modal Styles (Hidden by Default) */
-.hidden {
-    display: none;
+/* صفحه‌ی داخلی */
+.baskon-detail {
+  max-width: 800px;
+  margin: 4rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #d3f9f3; /* سبز پاستلی */
-    font-size: 0.9rem;
+#baskon-content {
+  margin-bottom: 2rem;
 }
 
-/* Responsive Improvements */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-    header p {
-        font-size: 1.1rem;
-    }
-    #add-baskon-btn {
-        padding: 1rem;
-        font-size: 1rem;
-    }
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    background: #d3f9f3; /* سبز پاستلی */
-    font-size: 0.9rem;
-    position: relative; /* Ensure the footer has space for embedded elements */
-}
-  
 #giscus-container {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px; /* Limit the width to something appropriate */
-    margin: 0 auto; /* Center it horizontally */
+  margin-top: 3rem;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 600px) {
-    #giscus-container {
-        padding: 1rem;
-        width: 90%;
-        max-width: 100%;
-    }
+/* استایل واکنش‌گرا */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  header p {
+    font-size: 1.1rem;
+  }
+
+  .baskon-card {
+    padding: 1rem;
+  }
+
+  .baskon-card .emoji {
+    font-size: 2.5rem;
+  }
+
+  .baskon-card .title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .baskon-list {
+    grid-template-columns: 1fr;
+  }
+
+  .baskon-card .emoji {
+    font-size: 2rem;
+  }
+
+  .baskon-card .title {
+    font-size: 1rem;
+  }
 }
