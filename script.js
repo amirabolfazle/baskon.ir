@@ -1,4 +1,3 @@
-// app.js
 import db from './db.js';
 
 const baskonList = document.getElementById("baskon-list");
@@ -11,6 +10,7 @@ function showBaskonDetail(item) {
   baskonContent.innerHTML = `
     <h2>${item.emoji} ${item.title}</h2>
     <p>${item.description}</p>
+    <button onclick='window.location.href = "/"'>بازگشت</button>
   `;
   loadGiscus();
 }
@@ -53,8 +53,7 @@ function loadBaskons() {
       <div class="description">${item.description}</div>
     `;
     card.addEventListener("click", () => {
-      history.pushState(null, "", `/${item.slug}`);
-      showBaskonDetail(item);
+      location.hash = `#${item.slug}`;  
     });
     baskonList.appendChild(card);
   });
@@ -63,7 +62,7 @@ function loadBaskons() {
 }
 
 function handleRouteChange() {
-  const path = window.location.pathname.slice(1); // remove leading "/"
+  const path = window.location.hash.slice(1);  
   if (path) {
     const baskon = db.find((item) => item.slug === path);
     if (baskon) {
@@ -73,7 +72,7 @@ function handleRouteChange() {
       baskonDetail.style.display = "block";
       baskonContent.innerHTML = `
         <h2>یافت نشد 🫣</h2>
-        <p>باسکونی با این آدرس پیدا نشد.</p>
+        <p>هیچ "بس کن"ی با این آدرس پیدا نشد.</p>
       `;
     }
   } else {
@@ -82,5 +81,6 @@ function handleRouteChange() {
   }
 }
 
-window.addEventListener("popstate", handleRouteChange);
+
+window.addEventListener("hashchange", handleRouteChange);
 window.addEventListener("DOMContentLoaded", loadBaskons);

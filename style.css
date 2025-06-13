@@ -147,6 +147,16 @@ header p {
   color: #34b8a0; /* Green hover effect */
 }
 
+button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 /* ریسپانسیو */
 @media (max-width: 768px) {
   header h1 {
